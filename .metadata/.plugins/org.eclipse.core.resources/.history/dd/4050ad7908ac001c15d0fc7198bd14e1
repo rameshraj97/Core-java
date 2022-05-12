@@ -1,0 +1,34 @@
+package com.chainsys.variables;
+
+public class CalculatorTest {
+public static void testAdd() 
+{
+	int arg1=100;
+int arg2=50;
+int output=Calculator.add(arg1, arg2);
+	System.out.println("result:"+output);
+}
+public static void testMultiply()
+{
+	int arg1=100;
+	int arg2=50;
+	int output=Calculator.multiple(arg1, arg2);
+		System.out.println("result:"+output);
+	}
+
+public static void testDivide()
+
+{int arg1=100;
+int arg2=50;
+int output=Calculator.divide(arg1, arg2);
+	System.out.println("result:"+output);
+}
+	
+public static void testSubtract() {
+	int arg1=100;
+	int arg2=50;
+	int output=Calculator.subtract(arg1, arg2);
+		System.out.println("result:"+output);
+	}
+
+}

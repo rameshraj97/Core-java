@@ -1,0 +1,14 @@
+package com.chainsys.variables;
+
+public class Startup {
+     
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+TestBank.testDeposit();
+TestBank.testOpenaccount();
+TestBank.testWithdraw();
+	}
+
+}

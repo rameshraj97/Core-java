@@ -1,0 +1,23 @@
+package com.chainsys.learning.File.Demo2;
+
+import java.io.*;
+
+public class BufferedDemo {
+
+
+
+
+public static void main(String[] args) throws Exception {
+		
+   System.out.println("enter the number");
+   InputStreamReader in = new InputStreamReader(System.in);
+   BufferedReader br=new BufferedReader(in);
+   int n=Integer.parseInt(br.readLine());
+   System.out.println( "you hava enter the number:"+n);
+   System.out.println("enter the String");
+   String str=br.readLine();
+   System.out.println("you hava enter the string:"+str); 
+	}
+
+}
+ 

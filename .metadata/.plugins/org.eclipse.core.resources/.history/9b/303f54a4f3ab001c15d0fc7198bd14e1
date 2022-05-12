@@ -1,0 +1,12 @@
+package com.chainsys.variables;
+
+public class TestMethod {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     Calculator.add(2, 4);
+     Calculator.divide(4, 6);
+     Calculator.multiple(4, 7);
+	}
+
+}

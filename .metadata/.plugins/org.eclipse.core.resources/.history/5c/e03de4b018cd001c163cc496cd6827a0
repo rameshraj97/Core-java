@@ -1,0 +1,154 @@
+package com.chainsys.jdbc;
+import java.sql.Statement;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class firstjdbc {
+	public static void main(String[] args) throws SQLException {
+		firstjdbc f=new firstjdbc();
+  //    f.delete();
+  //    f.insert();
+ //	    f.view();
+ //		f.update();
+ //		f.Drop();
+//		f.create();
+		f.insertimage();
+ 	}
+
+	public void create() {
+	
+		
+		  try { 
+			  
+		  Connection myCon = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system", "oracle");
+		  Statement mystat = myCon.createStatement();
+		//  ResultSet myRs =  mystat.executeQuery("create table student2 (id number, name varchar(20), dept varchar(20), year number, mark number)");
+		//  myRs.close();
+		  mystat.close();
+		  myCon.close();
+		  }
+		  catch(Exception err) {
+		  err.printStackTrace();
+		  
+		 
+		  
+		 }
+	}
+		  public void insert() {
+		 
+	      try {
+	    	  Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+	    	  Statement  mystat = con.createStatement();
+  //  	      ResultSet myRs =mystat.executeQuery ("create table Student2 "+ "(id number, name varchar(20),dept varchar(20),year number, mark number)");
+	          PreparedStatement stmt =con.prepareStatement("insert into Student2"+" values(?,?,?,?,?)"); 
+              Scanner sc= new  Scanner(System.in);
+              Scanner scan =new Scanner(System.in);
+           System.out.println("please enter the Student2 rollno: ");
+           int rollno= sc.nextInt();
+           System.out.println("entern name:");
+           String name= sc.next();
+           System.out.println("enter dept");
+           String dept=sc.next();
+           System.out.println("enter year");
+           int year=sc.nextInt();
+           System.out.println("mark:");
+           int mark=sc.nextInt();
+           
+           stmt.setInt(1, rollno);
+           stmt.setString(2, name);
+           stmt.setString(3,dept);
+           stmt.setInt(4,year);
+           stmt.setInt(5,mark);
+           int rows=stmt.executeUpdate();
+           System.out.println(rows+"updated....");
+           //myRs.close();
+           con.close();
+           mystat.close();
+          
+	       }catch(Exception err) {
+	           err.printStackTrace();
+	           
+	      }  
+	      
+ 
+}
+	public void delete() throws SQLException {
+		Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+  	    PreparedStatement stmt =con.prepareStatement("delete Student2 where id=?"); 
+  	    stmt.setInt(1, 2021);
+  	    int i=stmt.executeUpdate();
+  	    System.out.println(i+"record deleted");
+  	    stmt.close();
+  	    con.close();
+  	  
+    }
+	public void view() throws SQLException {
+		Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+	    Statement  mystat = con.createStatement(); 
+		ResultSet myRs =mystat.executeQuery ("select* from Student2 ");
+		while(myRs.next()) {
+		System.out.println(myRs.getInt(1)+myRs.getString(2)+myRs.getString(3)); 
+		 }
+	}
+   public void update() throws SQLException {
+	     Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+		 PreparedStatement stmt =con.prepareStatement("update Student2 set year =? where   id=?"); 
+		 stmt.setInt(1,2021);
+		 stmt.setInt(2, 101);
+		 int i=stmt.executeUpdate();
+		 System.out.println(i+"record update");
+		 stmt.close();
+		 con.close();
+		
+	}
+   public void Drop() throws SQLException {
+	  Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+	  Statement stmt = con.createStatement();
+	  String query ="drop table Student2";
+	  ResultSet Rs =  stmt.executeQuery("drop table Student2");
+	  int ss=stmt.executeUpdate(query);
+	  System.out.println(ss+"table droped!");
+      if(ss==0) {
+    	System.out.println("table is dropped");
+	    	}
+	    else {
+    	System.out.println("table is not drop");   
+    	}
+	    con.close();
+	    }
+   public void insertimage() throws SQLException{
+	   Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+	   System.out.println(" Connectoin is "+con);
+	   PreparedStatement ps=con.prepareStatement("insert into image_table values(?,?)");
+//	   ps.executeUpdate("create table image_table (company varchar(20), image Blob)");
+	   ps.setString(1,"chainsys");
+  try {
+	
+		FileInputStream fin= new FileInputStream("C:\\Users\\rame3119\\2f89cfe0-76ee-4649-84dc-7fe0d9f60e59.jpg");
+		ps.setBinaryStream(2, fin,fin.available());
+		int i=ps.executeUpdate(); 
+		System.out.println(i+"rows affectred"); 
+		
+	} catch (FileNotFoundException e) {
+		
+		e.printStackTrace();
+	} catch (IOException e) {
+		
+		e.printStackTrace();
+	}
+ 	    
+   } 
+  
+   }
+  
+ 
+

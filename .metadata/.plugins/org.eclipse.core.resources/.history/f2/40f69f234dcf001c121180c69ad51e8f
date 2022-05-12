@@ -1,0 +1,24 @@
+
+package com.chainsys.Strings;
+
+import java.util.LinkedList;
+public class LinkedListDemo {
+
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+LinkedList ii= new LinkedList();
+
+ii.add (5);
+ii.add(10);
+
+ii.add("nithya");
+
+
+ii.add("raja");
+
+}
+
+
+	}
+
+

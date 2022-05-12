@@ -1,0 +1,28 @@
+package com.chainsys.variables;
+
+public class BankTest {
+	long Accountnumber= 336768588l;
+	String Name="ramesh";
+   public void deposite() 
+   {
+	 System.out.println("deposite money:" );  
+   }
+   public void withdraw()
+   {
+	 System.out.println("i return withdraw:");  
+   }
+  
+  
+   
+  
+  
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       BankTest holder=new BankTest();
+              holder.withdraw();
+                 holder.deposite();
+              System.out.println(holder.Accountnumber);
+ System.out.println(holder.Name);
+}
+}
