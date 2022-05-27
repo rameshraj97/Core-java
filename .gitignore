@@ -1,4 +1,8 @@
+.metadata/
+/.metadate
 # Compiled class file
+
+
 *.class
 
 # Log file
@@ -20,4 +24,4 @@
 *.rar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*/.metadata/
+hs_err_pid*
