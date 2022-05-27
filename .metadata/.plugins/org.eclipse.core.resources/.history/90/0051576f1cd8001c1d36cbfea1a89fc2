@@ -1,0 +1,61 @@
+package com.chainsys.webapp.first;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class SessionStable
+ */
+public class SessionStates extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SessionStates() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		PrintWriter out= response.getWriter();
+		response.setContentType("text/html"); out.println("<html> <head> <title>Attribute</title> </head> <body>");
+		String submitValue = request.getParameter("submit");
+		HttpSession session= request.getSession(true); 
+		System.out.println(session.getId());
+		if (submitValue.equals("set")) {
+		String salaryInput = request.getParameter("salary"); 
+		session.setAttribute("salary", salaryInput) ;
+		//session.setAttribute("salary", salaryInput);
+		out.print("<h1>value Set</h1>"+ salaryInput);
+		//Storing data in Global Variable out.print("<h1>Value Set</h1>" + salary);
+		} else if (submitValue.equals("fetch")) {
+	
+		String sessionsalary=session.getAttribute("salary").toString();
+		//or
+		//String sessionsalary=session.getAttribute("salary").toString();
+		
+			out.print("<h1>Value Fetched</h1>" + sessionsalary);//returning value from Global Varia
+	}
+		out.println("</body></html>");
+
+}
+}
