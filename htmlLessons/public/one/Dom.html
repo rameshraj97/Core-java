@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>DOM</title>
+<style>
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+.red {
+    background-color: red;
+}
+.blue {
+    background-color: blue;
+}
+</style>
+</head>
+<body>
+    <div id="div1" class="green">Hello JavaScript</div>
+    <div>
+        <h1>Avengers</h1>
+        <ul>
+            <li class="yellow">Captain America</li>
+            <li class="red">Iron Man</li>
+            <li class="blue">Thor</li>
+            <li class="green">Hulk</li>
+        </ul>
+        <img src="images/tiger.jpg" alt="tiger" width=200 height=200>
+        <div id="div2">
+            <input type="text" name="fname" id="fname" value="HTML"
+                placeholder="first name">
+        </div>
+    </div>
+    <!-- <script>
+    console.log("Avengers Assemble");
+    console.log(document);
+    console.log(document.URL);
+    console.log(document.children[0]);
+    console.log(document.children[0].children[0]);
+    console.log(document.children[0].children[1].childNodes);
+    </script> -->
+    <!--     <script>
+    var x=234;
+    console.log(x);
+    var cities={'capital':'chennai','native':'madurai','permanent':'dindigul','favourite':'kanyakumari'}
+    console.log(cities);
+    </script> -->
+    <script>
+        var divElement = document.getElementById("div1");
+        //divElement.innerHTML = "Hello June 2022";
+        divElement.innerText = "Hello June 2022";
+        var textElement = document.getElementById("fname");
+        console.log(textElement.value);
+        var listItems = document.getElementsByTagName("li");
+        var itemLength = listItems.length;
+        for (var i = 0; i < itemLength; i++) {
+            console.log(listItems[i].innerText);
+        }
+        listItems[0].innerText = "Ant Man";
+        listItems[1].innerText = "Hawkeye";
+        listItems[2].innerText = "Black Widow";
+        listItems[3].innerText = "Doctor Strange";
+    </script>
+</body>
+</html>

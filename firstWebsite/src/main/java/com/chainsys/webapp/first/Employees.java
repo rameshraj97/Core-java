@@ -1,4 +1,4 @@
-package com.chainsys.webapp.first;
+ package com.chainsys.webapp.first;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,7 +45,7 @@ public class Employees extends HttpServlet {
 		if (request.getParameter("input").equals("yes")) {
 			response.setContentType("text/html");
 			out.print("<html><head><title><Employees</title></head><body>");
-			out.print("<table border=1px bgcolor=\"DodgerBlue\" width=50%>");
+			out.print("<table border=1px bgcolor=\"Do dgerBlue\" width=50%>");
 			out.print("<tr bgcolor=\"DarkSlateBlue\" align=center>");
 			out.print("<th height=\"10\" width=\"90\">Emp_id:</th>");
 			out.print("<th height=\"10\" width=\"90\">First_name:</th>");
